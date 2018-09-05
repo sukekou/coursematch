@@ -6,3 +6,28 @@
     <h1><%= @user.name %></h1>
   </div>
 </div>
+<div class="col-md-5 col-md-offset-2 profile-left">
+    <dl>
+        <dt>名前</dt>
+        <dd><%=@user.name %></dd>
+    </dl>
+    <dl>
+        <dt>勤務場所</dt>
+        <dd><%=@user.location %></dd>
+    </dl>
+    <dl>
+        <dt>受講講座</dt>
+        <dd>
+        <% @user.courses.each do |course|%>
+        <%=link_to course.name,course %><br>
+        <% end %>
+        </dd>
+    </dl>
+    <dl>
+        <dt>更新日</dt>
+        <dd><%=@user.updated_at %></dd>
+    </dl>
+<% if current_user == @user %>
+<%= link_to 'プロフィールを更新する', edit_user_path, class: 'btn btn-success' %>
+<% end %>
+</div>

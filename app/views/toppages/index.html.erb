@@ -11,4 +11,6 @@
   </div>
 <% end %>
 
-<p>テスト</p>
+<% if logged_in? %>
+  <%= render 'courses/courses', courses: @courses %>
+<% end %>
