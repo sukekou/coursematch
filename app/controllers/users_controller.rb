@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    if validate_password && @user.update(user_params)
       flash[:success] = 'プロフィールが正常に更新されました'
       redirect_to @user
     else
@@ -49,6 +49,14 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :location, :password, :password_confirmation,{:course_ids => []})
+  end
+  
+  def validate_password
+    unless @user.authenticate(params[:password_for_validation])
+      @user.errors.add(:password, 'パスワードが一致しませんでした')
+      return false
+    end
+    true
   end
   
 end
