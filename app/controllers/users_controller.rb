@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash.now[:danger] = 'プロフィールは更新されませんでした'
-      render :edit
+      render :edit1
     end
     
   end
@@ -44,6 +44,15 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
+  
+  def edit1
+    @user = User.find(params[:id])
+  end
+  
+  def edit2
+    @user = User.find(params[:id])
+  end
+    
   
   private
 

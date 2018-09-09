@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   resources :courses, only: [:show]
   resources :courses_users, only: [:create, :destroy]
   
+  get'users/:id/edit1',to: 'users#edit1'
+  get'users/:id/edit2',to: 'users#edit2'
+  
 end

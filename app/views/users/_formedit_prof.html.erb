@@ -11,21 +11,18 @@
           </div>
 
           <div class="form-group">
-            <%= f.label :password, 'パスワード' %>
-            <%= f.password_field :password, class: 'form-control' %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :password_confirmation, 'パスワード（確認）' %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %>
-          </div>
-          <div class="form-group">
             <%= f.label :courses,'受講中の講座' %><br />
             <%= collection_check_boxes(:user, :course_ids, Course.all, :id, :name) do |b| %>
               <%= b.label { b.check_box + b.text } %>
             <% end %>
           </div>
+          <br />
+          <br />
+          <div class="form-group">
+           <%= f.label :password, '現在のパスワード(変更を反映するには現在のパスワードを入力してください)' %>
+           <%= password_field_tag :password_for_validation, class: 'form-control' %>
+          </div>
           <div class="text-right">
-            <%= f.submit '登録する', class: 'btn btn-success' %>
+            <%= f.submit '変更する', class: 'btn btn-success' %>
           </div>
         <% end %>

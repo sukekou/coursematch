@@ -1,16 +1,6 @@
         <%= form_for(user) do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>
           <div class="form-group">
-            <%= f.label :name, '名前' %>
-            <%= f.text_field :name, class: 'form-control' %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :location, '場所名' %>
-            <%= f.text_field :location, class: 'form-control' %>
-          </div>
-
-          <div class="form-group">
             <%= f.label :password, 'パスワードの変更' %>
             <%= f.password_field :password, class: 'form-control' %>
           </div>
@@ -18,12 +8,6 @@
           <div class="form-group">
             <%= f.label :password_confirmation, 'パスワードの変更（確認）' %>
             <%= f.password_field :password_confirmation, class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :courses,'受講講座' %><br />
-            <%= collection_check_boxes(:user, :course_ids, Course.all, :id, :name) do |b| %>
-              <%= b.label { b.check_box + b.text } %>
-            <% end %>
           </div>
           <br />
           <br />
