@@ -25,7 +25,7 @@
     </dl>
     <dl>
         <dt>更新日</dt>
-        <dd><%=@user.updated_at %></dd>
+        <dd><%=@user.updated_at.strftime("%Y-%m-%d") %></dd>
     </dl>
 <% if current_user == @user %>
 <%= link_to 'プロフィールを更新する', "/users/#{@user.id}/edit1", class: 'btn btn-success' %>

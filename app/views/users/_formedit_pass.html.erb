@@ -13,7 +13,7 @@
           <br />
           <div class="form-group">
            <%= f.label :password, '現在のパスワード(変更を反映するには現在のパスワードを入力してください)' %>
-           <%= password_field_tag :password_for_validation, class: 'form-control' %>
+           <%= password_field_tag :password_for_validation,'', class: 'form-control' %>
           </div>
           <div class="text-right">
             <%= f.submit '変更する', class: 'btn btn-success' %>
