@@ -19,4 +19,6 @@
     </tbody>
   </table>
 
- <p class="attention">※今年度更新されていないユーザー</p>
+<% unless @old_users.blank? %>
+ <p class="attention">※今年度更新がされていません</p>
+<% end %>
