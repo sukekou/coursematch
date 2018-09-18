@@ -2,8 +2,8 @@
   <% courses.each do |course| %>
     <li class="media">
       <div class="media-body">
-        <div>
-          <%= link_to "#{course.name}(#{course.users.count})", course %>
+        <div class="col-xs-offset-1 col-xs-10 col-xs-offset-1　 col-md-offset-3 col-md-6">
+          <%= link_to "#{course.name}(#{course.users.count})", course , class: 'btn btn-primary btn-block' %>
         </div>
       </div>
     </li>

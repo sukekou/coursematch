@@ -17,7 +17,9 @@
         </tr>
       <% end %>
     </tbody>
+    <%= paginate @users %>
   </table>
+
 
 <% unless @old_users.blank? %>
  <p class="attention">※今年度更新がされていません</p>

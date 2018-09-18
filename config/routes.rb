@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   get'users/:id/edit1',to: 'users#edit1'
   get'users/:id/edit2',to: 'users#edit2'
   
+  get'about',to:'about#index'
+  
 end
