@@ -30,4 +30,10 @@
 <% if current_user == @user %>
 <%= link_to 'プロフィールを更新する', "/users/#{@user.id}/edit1", class: 'btn btn-success' %>
 <% end %>
+
+
+<% if @user.admin %>
+<%= link_to '管理者ページ', admin_path, class: 'btn btn-danger' %>
+<% end %>
+
 </div>

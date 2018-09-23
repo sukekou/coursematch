@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show,:edit]
+  before_action :require_user_logged_in, only: [:show,:edit1,:edit2,:edit]
+  before_action :correct_user, only:[:destroy,:upadate]
   
   def show
     @user = User.find(params[:id])
@@ -68,4 +69,11 @@ class UsersController < ApplicationController
     true
   end
   
+  def correct_user
+    @user = User.find_by(id: params[:id])
+    if (@user && current_user.try!(:admin)) || (@user && (@user.name == current_user.try!(:name)))
+    else
+      redirect_to root_url
+    end
+  end
 end
